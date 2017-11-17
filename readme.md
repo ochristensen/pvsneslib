@@ -11,14 +11,12 @@ You can find the library Doxygen documentation in the 'doc' directory: doc/html/
 GitHub page: https://github.com/alekmaul/pvsneslib
 Wiki page: https://github.com/alekmaul/pvsneslib/wiki
 
-You can find tutorials about how install and use PVSneslib on this page:
-https://github.com/alekmaul/pvsneslib/Tuto-Intro
+You can find tutorials about how install and use PVSneslib on this page:\s
+ https://github.com/alekmaul/pvsneslib/Tuto-Intro
 
 PVSneslib and affiliated tools are distributed under the MIT license (see license.txt file)
 
-If you want to donate to support PVSneslib development:
+If you want to donate to support PVSneslib development:\s
  [![Paypal](https://www.paypalobjects.com/fr_FR/FR/i/btn/x-click-but04.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Y5USKF23DQVLC)
-
-https://paypal.me/JGIRARD996
 
 Thanks =)

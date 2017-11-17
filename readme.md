@@ -1,4 +1,4 @@
-# A C library for the Super NES 20th birthday #
+# A C library for the Nintendo SNES 20th birthday #
 
 PVSneslib V2.3.1 (04, June, 2017)
 <br>http://www.portabledev.com/jeux/supernes/pvsneslib/

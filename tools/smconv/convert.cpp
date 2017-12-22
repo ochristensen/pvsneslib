@@ -10,13 +10,9 @@
 #include "itloader.h"
 #include "it2spc.h"
 
-//DEFINES
-#define SMCONVVERSION __BUILD_VERSION
-#define SMCONVDATE __BUILD_DATE
-
 const char USAGE[] = {
 	"\n==========================================================="
-	"\n---                  smconv v"SMCONVVERSION" "SMCONVDATE"             ---"
+	"\n---smconv---"
 	"\n-----------------------------------------------------------"
 	"\n             (c) 2012 Mukunda Johnson & Alekmaul "
 	"\nBased on SNESMOD (C) 2009 Mukunda Johnson (www.mukunda.com)"

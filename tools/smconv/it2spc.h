@@ -79,7 +79,7 @@ namespace IT2SPC {
 		~Instrument();
 
 		int GetExportSize() const {
-			return 5 + (!EnvelopeLength) ? 0 : (3 + (EnvelopeLength/4) * 4);
+			return 5 + ((!EnvelopeLength) ? 0 : (3 + (EnvelopeLength/4) * 4));
 		}
 		
 		void Export( IO::File & ) const;
@@ -127,8 +127,8 @@ namespace IT2SPC {
 		std::vector<Sample*> Samples;
 		
 
-		void Module::ParseSMOption( const char * );
-		void Module::ParseSMOptions( const ITLoader::Module & );
+		void ParseSMOption( const char * );
+		void ParseSMOptions( const ITLoader::Module & );
 		
 	public:
 		Module( 

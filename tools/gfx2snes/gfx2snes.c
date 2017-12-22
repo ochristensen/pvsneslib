@@ -388,7 +388,7 @@ int TGA_Load(char *filename, pcx_picture_ptr image)
 	// within the picture structure, the separate images can be grabbed from this
 	// buffer later.  also the header and palette are loaded
 	FILE *fp;
-	unsigned long index,i;
+	long index,i;
 	tga_header tgahead;
 	pcx_header *header;
 
@@ -1436,8 +1436,7 @@ int main(int argc, char **arg)
 	// Show something to begin :)
 	if (quietmode == 0) {
 		printf("\n==============================");
-		printf("\n---gfx2snes v"GFX2SNESVERSION" "GFX2SNESDATE"---");
-		printf("\n------------------------------");
+		printf("\ngfx2snes----------------------");
 		printf("\n(c) 2013-2017 Alekmaul ");
 		printf("\nBased on pcx2snes by Neviksti");
 		printf("\n==============================\n");

@@ -3900,7 +3900,7 @@ static void Adam7_getpassvalues(unsigned passw[7], unsigned passh[7], size_t fil
 /* ////////////////////////////////////////////////////////////////////////// */
 
 /*read the information from the header and store it in the LodePNGInfo. return value is error*/
-unsigned lodepng_inspect(unsigned* w, unsigned* h, LodePNGState* state,
+unsigned lodepng_inspect(size_t* w, size_t* h, LodePNGState* state,
                          const unsigned char* in, size_t insize)
 {
   LodePNGInfo* info = &state->info_png;
@@ -4519,7 +4519,7 @@ static unsigned readChunk_pHYs(LodePNGInfo* info, const unsigned char* data, siz
 #endif /*LODEPNG_COMPILE_ANCILLARY_CHUNKS*/
 
 /*read a PNG, the result will be in the same color type as the PNG (hence "generic")*/
-static void decodeGeneric(unsigned char** out, unsigned* w, unsigned* h,
+static void decodeGeneric(unsigned char** out, size_t* w, size_t* h,
                           LodePNGState* state,
                           const unsigned char* in, size_t insize)
 {
@@ -4720,7 +4720,7 @@ static void decodeGeneric(unsigned char** out, unsigned* w, unsigned* h,
   ucvector_cleanup(&scanlines);
 }
 
-unsigned lodepng_decode(unsigned char** out, unsigned* w, unsigned* h,
+unsigned lodepng_decode(unsigned char** out, size_t* w, size_t* h,
                         LodePNGState* state,
                         const unsigned char* in, size_t insize)
 {
@@ -4765,7 +4765,7 @@ unsigned lodepng_decode(unsigned char** out, unsigned* w, unsigned* h,
   return state->error;
 }
 
-unsigned lodepng_decode_memory(unsigned char** out, unsigned* w, unsigned* h, const unsigned char* in,
+unsigned lodepng_decode_memory(unsigned char** out, size_t* w, size_t* h, const unsigned char* in,
                                size_t insize, LodePNGColorType colortype, unsigned bitdepth)
 {
   unsigned error;
@@ -4778,18 +4778,18 @@ unsigned lodepng_decode_memory(unsigned char** out, unsigned* w, unsigned* h, co
   return error;
 }
 
-unsigned lodepng_decode32(unsigned char** out, unsigned* w, unsigned* h, const unsigned char* in, size_t insize)
+unsigned lodepng_decode32(unsigned char** out, size_t* w, size_t* h, const unsigned char* in, size_t insize)
 {
   return lodepng_decode_memory(out, w, h, in, insize, LCT_RGBA, 8);
 }
 
-unsigned lodepng_decode24(unsigned char** out, unsigned* w, unsigned* h, const unsigned char* in, size_t insize)
+unsigned lodepng_decode24(unsigned char** out, size_t* w, size_t* h, const unsigned char* in, size_t insize)
 {
   return lodepng_decode_memory(out, w, h, in, insize, LCT_RGB, 8);
 }
 
 #ifdef LODEPNG_COMPILE_DISK
-unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h, const char* filename,
+unsigned lodepng_decode_file(unsigned char** out, size_t* w, size_t* h, const char* filename,
                              LodePNGColorType colortype, unsigned bitdepth)
 {
   unsigned char* buffer = 0;
@@ -4801,12 +4801,12 @@ unsigned lodepng_decode_file(unsigned char** out, unsigned* w, unsigned* h, cons
   return error;
 }
 
-unsigned lodepng_decode32_file(unsigned char** out, unsigned* w, unsigned* h, const char* filename)
+unsigned lodepng_decode32_file(unsigned char** out, size_t* w, size_t* h, const char* filename)
 {
   return lodepng_decode_file(out, w, h, filename, LCT_RGBA, 8);
 }
 
-unsigned lodepng_decode24_file(unsigned char** out, unsigned* w, unsigned* h, const char* filename)
+unsigned lodepng_decode24_file(unsigned char** out, size_t* w, size_t* h, const char* filename)
 {
   return lodepng_decode_file(out, w, h, filename, LCT_RGB, 8);
 }

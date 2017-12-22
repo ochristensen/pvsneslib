@@ -10,13 +10,8 @@
 //INCLUDES
 #include <stdlib.h>
 #include <stdio.h>
-//#include <memory.h>
-//#include <malloc.h>
 #include <string.h>
-
-#define BIN2TXTVERSION __BUILD_VERSION
-#define BIN2TXTDATE __BUILD_DATE
-
+#include <ctype.h>
 
 //// M A I N   V A R I A B L E S ////////////////////////////////////////////////
 int	convformat=1;			//convertion formation (1=c , 2 = asm)
@@ -30,6 +25,15 @@ char filename[256];			// output filename
 
 
 //////////////////////////////////////////////////////////////////////////////
+
+char* strupr(char* s)
+{
+    char* tmp = s;
+    for (;*tmp;++tmp) {
+        *tmp = toupper((unsigned char) *tmp);
+    }
+    return s;
+}
 
 void PrintOptions(char *str)
 {
@@ -61,7 +65,7 @@ int main(int argc, char **arg)
 	// Show something to begin :)
 	if (quietmode == 0) {
 		printf("\n=============================");
-		printf("\n---bin2txt v"BIN2TXTVERSION" "BIN2TXTDATE"---");
+		printf("\n---bin2txt---");
 		printf("\n------------------------------");
 		printf("\n(c) 2012 Alekmaul ");
 		printf("\n=============================\n");

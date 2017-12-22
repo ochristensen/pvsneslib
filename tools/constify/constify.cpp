@@ -40,12 +40,12 @@ int safe_string_access(string s, int pos)
 
 
 // Finds a word (i.e. word=="foo" would match on "foo bar" or "a foo bar" but not on "foobar")
-unsigned int find_word(string s, const char *word)
+size_t find_word(string s, const char *word)
 {
 	int p = s.find(word);
-	if (is_whitespace(safe_string_access(s, p - 1)) && is_whitespace(safe_string_access(s, p + strlen(word))))
-		return p;
-	return string::npos;
+	return is_whitespace(safe_string_access(s, p - 1)) && is_whitespace(safe_string_access(s, p + strlen(word)))
+		? p
+		: string::npos;
 }
 
 
@@ -97,12 +97,13 @@ void check_for_const(string s)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-void PrintOptions(char *str)
+void PrintOptions(const char* str)
 {
 	printf("\n\nUsage: constify [options] cfile asmfile output ...");
 	
-	if(str[0]!=0)
+	if(str[0] != 0) {
 		printf("\nThe [%s] parameter is not recognized.",str);
+	}
 	
 	printf("\n\nOptions are:");
 	printf("\n\n--- section options ---");
@@ -128,7 +129,7 @@ int main(int argc, char **argv)
 	// Show something to begin :)
 	if (quietmode == 0) {
 		printf("\n==============================");
-		printf("\n---constify v"CONSTIFYVERSION" "CONSTIFYDATE"---");
+		printf("\n---constify---");
 		printf("\n------------------------------");
 		printf("\n(c) 2013-2017 Alekmaul ");
 		printf("\nBased on constify by Mic");
@@ -301,7 +302,8 @@ int main(int argc, char **argv)
 
 	for (i = 0; i < constVars.size(); i++)
 	{
-		unsigned int k, m;
+		size_t k;
+		unsigned int m;
 		int n;
 		j = 1;
 		varOffs = 0;

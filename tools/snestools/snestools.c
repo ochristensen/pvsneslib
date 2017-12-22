@@ -11,14 +11,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <memory.h>
-#include <malloc.h>
 #include <string.h>
-//#include <ctype.h>
+#include <ctype.h>
 
 //DEFINES
-#define SNESTOOLSVERSION __BUILD_VERSION
-#define SNESTOOLSDATE __BUILD_DATE
-
 #define LOROM_HEADER			0x7fc0
 #define HIROM_HEADER			0xffc0
 #define OFFSET_CHECKSUM			0x001c
@@ -406,7 +402,7 @@ int show_header(char * filename, FILE *fp)
 		printf("\nGeneric Information");printf("\n-------------------");
 		printf("\nGame title    : %s", title);
 		printf("\nROM ID        : %.4s", snesheader.license == 0x33 ? rom_id : "None");
-		printf("\nCompany       : %s [%02X]", companies[company], company_id);
+		printf("\nCompany       : %s [%02X]", companies[company], company_id[0]);
 		printf("\nLicense       : %s [%02X]", companies[snesheader.license], snesheader.license );
 		printf("\nCountry:      : %s [%02X]", countries[snesheader.countrycode], snesheader.countrycode );
 		printf("\nVersion       : 1.%d", snesheader.version );
@@ -654,7 +650,7 @@ int main(int argc, char **arg)
 	// Show something to begin :)
 	if (quietmode == 0) {
 		printf("\n===============================");
-		printf("\n---snestools v"SNESTOOLSVERSION" "SNESTOOLSDATE"---");
+		printf("\n---snestools---");
 		printf("\n-------------------------------");
 		printf("\n(c) 2014 Alekmaul ");
 		printf("\n===============================\n");

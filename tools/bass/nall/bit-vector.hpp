@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/memory.hpp>
+#include "memory.hpp"
 
 namespace nall {
 

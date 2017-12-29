@@ -3,8 +3,8 @@
 //generic abstraction layer for common storage operations against both files and directories
 //these functions are not recursive; use directory::create() and directory::remove() for recursion
 
-#include <nall/platform.hpp>
-#include <nall/string.hpp>
+#include "platform.hpp"
+#include "string.hpp"
 
 namespace nall {
 

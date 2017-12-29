@@ -1,9 +1,9 @@
 #pragma once
 
 #if defined(EC_REFERENCE)
-  #include <nall/elliptic-curve/modulo25519-reference.hpp>
+  #include "elliptic-curve/modulo25519-reference.hpp"
 #else
-  #include <nall/elliptic-curve/modulo25519.hpp>
+  #include "elliptic-curve/modulo25519.hpp"
 #endif
 
 namespace nall { namespace EllipticCurve {

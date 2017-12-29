@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/http/message.hpp>
+#include "http/message.hpp"
 
 namespace nall { namespace HTTP {
 

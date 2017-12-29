@@ -1,12 +1,12 @@
 #pragma once
 
-#include <nall/platform.hpp>
-#include <nall/inode.hpp>
-#include <nall/stdint.hpp>
-#include <nall/string.hpp>
-#include <nall/utility.hpp>
-#include <nall/varint.hpp>
-#include <nall/hash/sha256.hpp>
+#include "platform.hpp"
+#include "inode.hpp"
+#include "stdint.hpp"
+#include "string.hpp"
+#include "utility.hpp"
+#include "varint.hpp"
+#include "hash/sha256.hpp"
 
 namespace nall {
 

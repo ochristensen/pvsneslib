@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/arithmetic.hpp>
+#include "arithmetic.hpp"
 
 namespace nall { namespace MAC {
 

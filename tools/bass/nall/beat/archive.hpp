@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/beat/file.hpp>
+#include "beat/file.hpp"
 
 namespace nall { namespace Beat {
 

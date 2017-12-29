@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.10.1)
-
+# target_compile_features(bass PUBLIC cxx_std_14)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+add_subdirectory(bass)
 add_subdirectory(bin2h)
 add_subdirectory(bin2txt)
 add_subdirectory(constify)

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <nall/algorithm.hpp>
-#include <nall/stdint.hpp>
+#include "algorithm.hpp"
+#include "stdint.hpp"
 
 namespace nall { namespace memory {
   inline auto allocate(uint size) -> void*;

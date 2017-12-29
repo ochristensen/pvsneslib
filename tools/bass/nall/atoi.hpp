@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/stdint.hpp>
+#include "stdint.hpp"
 
 namespace nall {
 

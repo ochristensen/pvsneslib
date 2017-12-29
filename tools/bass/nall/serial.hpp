@@ -1,8 +1,8 @@
 #pragma once
 
-#include <nall/intrinsics.hpp>
-#include <nall/stdint.hpp>
-#include <nall/string.hpp>
+#include "intrinsics.hpp"
+#include "stdint.hpp"
+#include "string.hpp"
 
 #if !defined(API_POSIX)
   #error "nall/serial: unsupported system"

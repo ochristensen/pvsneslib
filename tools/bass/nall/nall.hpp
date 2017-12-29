@@ -11,72 +11,72 @@
 //include the most common nall headers with one statement
 //does not include the most obscure components with high cost and low usage
 
-#include <nall/platform.hpp>
+#include "platform.hpp"
 
-#include <nall/algorithm.hpp>
-#include <nall/any.hpp>
-#include <nall/arithmetic.hpp>
-#include <nall/array.hpp>
-#include <nall/atoi.hpp>
-#include <nall/bit.hpp>
-#include <nall/bit-field.hpp>
-#include <nall/bit-vector.hpp>
-#include <nall/chrono.hpp>
-#include <nall/directory.hpp>
-#include <nall/dl.hpp>
-#include <nall/endian.hpp>
-#include <nall/file.hpp>
-#include <nall/filemap.hpp>
-#include <nall/function.hpp>
-#include <nall/hashset.hpp>
-#include <nall/hid.hpp>
-#include <nall/image.hpp>
-#include <nall/inode.hpp>
-#include <nall/interpolation.hpp>
-#include <nall/intrinsics.hpp>
-#include <nall/location.hpp>
-#include <nall/map.hpp>
-#include <nall/matrix.hpp>
-#include <nall/maybe.hpp>
-#include <nall/memory.hpp>
-#include <nall/path.hpp>
-#include <nall/primitives.hpp>
-#include <nall/property.hpp>
-#include <nall/queue.hpp>
-#include <nall/random.hpp>
-#include <nall/range.hpp>
-#include <nall/run.hpp>
-#include <nall/serializer.hpp>
-#include <nall/set.hpp>
-#include <nall/shared-pointer.hpp>
-#include <nall/sort.hpp>
-#include <nall/stdint.hpp>
-#include <nall/string.hpp>
-#include <nall/thread.hpp>
-#include <nall/traits.hpp>
-#include <nall/unique-pointer.hpp>
-#include <nall/utility.hpp>
-#include <nall/varint.hpp>
-#include <nall/vector.hpp>
-#include <nall/decode/base64.hpp>
-#include <nall/decode/bmp.hpp>
-#include <nall/decode/gzip.hpp>
-#include <nall/decode/inflate.hpp>
-#include <nall/decode/png.hpp>
-#include <nall/decode/url.hpp>
-#include <nall/decode/zip.hpp>
-#include <nall/encode/base64.hpp>
-#include <nall/encode/url.hpp>
-#include <nall/hash/crc16.hpp>
-#include <nall/hash/crc32.hpp>
-#include <nall/hash/crc64.hpp>
-#include <nall/hash/sha256.hpp>
+#include "algorithm.hpp"
+#include "any.hpp"
+#include "arithmetic.hpp"
+#include "array.hpp"
+#include "atoi.hpp"
+#include "bit.hpp"
+#include "bit-field.hpp"
+#include "bit-vector.hpp"
+#include "chrono.hpp"
+#include "directory.hpp"
+#include "dl.hpp"
+#include "endian.hpp"
+#include "file.hpp"
+#include "filemap.hpp"
+#include "function.hpp"
+#include "hashset.hpp"
+#include "hid.hpp"
+#include "image.hpp"
+#include "inode.hpp"
+#include "interpolation.hpp"
+#include "intrinsics.hpp"
+#include "location.hpp"
+#include "map.hpp"
+#include "matrix.hpp"
+#include "maybe.hpp"
+#include "memory.hpp"
+#include "path.hpp"
+#include "primitives.hpp"
+#include "property.hpp"
+#include "queue.hpp"
+#include "random.hpp"
+#include "range.hpp"
+#include "run.hpp"
+#include "serializer.hpp"
+#include "set.hpp"
+#include "shared-pointer.hpp"
+#include "sort.hpp"
+#include "stdint.hpp"
+#include "string.hpp"
+#include "thread.hpp"
+#include "traits.hpp"
+#include "unique-pointer.hpp"
+#include "utility.hpp"
+#include "varint.hpp"
+#include "vector.hpp"
+#include "decode/base64.hpp"
+#include "decode/bmp.hpp"
+#include "decode/gzip.hpp"
+#include "decode/inflate.hpp"
+#include "decode/png.hpp"
+#include "decode/url.hpp"
+#include "decode/zip.hpp"
+#include "encode/base64.hpp"
+#include "encode/url.hpp"
+#include "hash/crc16.hpp"
+#include "hash/crc32.hpp"
+#include "hash/crc64.hpp"
+#include "hash/sha256.hpp"
 
 #if defined(PLATFORM_WINDOWS)
-  #include <nall/windows/registry.hpp>
-  #include <nall/windows/utf8.hpp>
+  #include "windows/registry.hpp"
+  #include "windows/utf8.hpp"
 #endif
 
 #if defined(API_POSIX)
-  #include <nall/serial.hpp>
+  #include "serial.hpp"
 #endif

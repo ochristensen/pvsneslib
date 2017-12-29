@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/intrinsics.hpp>
+#include "intrinsics.hpp"
 
 namespace Math {
   static const long double e  = 2.71828182845904523536;
@@ -13,7 +13,7 @@ namespace Math {
   #define _WIN32_WINNT 0x0601
   #undef  __MSVCRT_VERSION__
   #define __MSVCRT_VERSION__ _WIN32_WINNT
-  #include <nall/windows/utf8.hpp>
+  #include "windows/utf8.hpp"
 #endif
 
 #include <atomic>

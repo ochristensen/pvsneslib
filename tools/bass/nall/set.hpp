@@ -11,8 +11,8 @@
 //  bool T::operator==(const T&) const;
 //  bool T::operator< (const T&) const;
 
-#include <nall/utility.hpp>
-#include <nall/vector.hpp>
+#include "utility.hpp"
+#include "vector.hpp"
 
 namespace nall {
 

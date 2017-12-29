@@ -1,10 +1,10 @@
 #pragma once
 
-#include <nall/foreach.hpp>
-#include <nall/platform.hpp>
-#include <nall/stdint.hpp>
-#include <nall/string.hpp>
-#include <nall/utf8.hpp>
+#include "foreach.hpp"
+#include "platform.hpp"
+#include "stdint.hpp"
+#include "string.hpp"
+#include "utf8.hpp"
 
 namespace nall {
 

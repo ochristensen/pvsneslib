@@ -1,7 +1,7 @@
 #pragma once
 
-#include <nall/nall.hpp>
-#include <nall/serial.hpp>
+#include "nall.hpp"
+#include "serial.hpp"
 using namespace nall;
 
 using  int8 = Integer< 8>;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/hash/hash.hpp>
+#include "hash.hpp"
 
 namespace nall { namespace Hash {
 

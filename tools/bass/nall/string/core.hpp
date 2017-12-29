@@ -4,13 +4,13 @@
 //all other functions must use data(), size(), capacity()
 
 #if defined(NALL_STRING_ALLOCATOR_ADAPTIVE)
-  #include <nall/string/allocator/adaptive.hpp>
+  #include "allocator/adaptive.hpp"
 #elif defined(NALL_STRING_ALLOCATOR_COPY_ON_WRITE)
-  #include <nall/string/allocator/copy-on-write.hpp>
+  #include "allocator/copy-on-write.hpp"
 #elif defined(NALL_STRING_ALLOCATOR_SMALL_STRING_OPTIMIZATION)
-  #include <nall/string/allocator/small-string-optimization.hpp>
+  #include "allocator/small-string-optimization.hpp"
 #elif defined(NALL_STRING_ALLOCATOR_VECTOR)
-  #include <nall/string/allocator/vector.hpp>
+  #include "allocator/vector.hpp"
 #endif
 
 namespace nall {

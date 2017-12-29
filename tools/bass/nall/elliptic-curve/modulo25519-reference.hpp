@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/arithmetic/barrett.hpp>
+#include "arithmetic/barrett.hpp"
 
 namespace nall { namespace EllipticCurve {
 

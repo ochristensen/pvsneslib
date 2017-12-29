@@ -10,10 +10,10 @@
 #undef  NOMINMAX
 #define NOMINMAX
 
-#include <nall/windows/guard.hpp>
+#include "windows/guard.hpp"
 #include <winsock2.h>
 #include <windows.h>
-#include <nall/windows/guard.hpp>
+#include "windows/guard.hpp"
 
 #if !defined(PATH_MAX)
   #define PATH_MAX 260

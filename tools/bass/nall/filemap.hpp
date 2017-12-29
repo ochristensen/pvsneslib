@@ -1,8 +1,8 @@
 #pragma once
 
-#include <nall/file.hpp>
-#include <nall/stdint.hpp>
-#include <nall/windows/utf8.hpp>
+#include "file.hpp"
+#include "stdint.hpp"
+#include "windows/utf8.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>

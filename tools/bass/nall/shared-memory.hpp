@@ -1,12 +1,12 @@
 #pragma once
 
-#include <nall/memory.hpp>
-#include <nall/string.hpp>
+#include "memory.hpp"
+#include "string.hpp"
 
 #if defined(API_POSIX)
-  #include <nall/posix/shared-memory.hpp>
+  #include "posix/shared-memory.hpp"
 #endif
 
 #if defined(API_WINDOWS)
-  #include <nall/windows/shared-memory.hpp>
+  #include "windows/shared-memory.hpp"
 #endif

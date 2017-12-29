@@ -4,7 +4,7 @@
  * revision 0.02
  */
 
-#include <nall/location.hpp>
+#include "../../location.hpp"
 
 namespace nall { namespace {
 

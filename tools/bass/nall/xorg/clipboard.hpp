@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/xorg/xorg.hpp>
+#include "xorg/xorg.hpp"
 
 namespace nall { namespace Clipboard {
 

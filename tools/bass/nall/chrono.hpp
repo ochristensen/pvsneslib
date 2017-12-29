@@ -1,7 +1,7 @@
 #pragma once
 
-#include <nall/function.hpp>
-#include <nall/string.hpp>
+#include "function.hpp"
+#include "string.hpp"
 
 namespace nall { namespace chrono { namespace {
 

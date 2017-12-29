@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nall/file.hpp>
+#include "file.hpp"
 
 namespace nall { namespace vfs { namespace fs {
 

@@ -1,8 +1,8 @@
 #pragma once
 
-#include <nall/decode/url.hpp>
-#include <nall/encode/url.hpp>
-#include <nall/http/message.hpp>
+#include "decode/url.hpp"
+#include "encode/url.hpp"
+#include "http/message.hpp"
 
 namespace nall { namespace HTTP {
 

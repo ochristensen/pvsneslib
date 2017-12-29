@@ -2,8 +2,8 @@
 
 //creates uncompressed ZIP archives
 
-#include <nall/string.hpp>
-#include <nall/hash/crc32.hpp>
+#include "string.hpp"
+#include "hash/crc32.hpp"
 
 namespace nall { namespace Encode {
 

@@ -1,3 +1,2 @@
-- move bass to cmake
 - compile omptimore-816 (euphoria) - euphoria to c converter exists
 - 

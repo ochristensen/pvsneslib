@@ -1,4 +1,4 @@
-#!/c/Python27/python
+#!/usr/bin/env python
 
 import sys
 import re

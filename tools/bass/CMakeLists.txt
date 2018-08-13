@@ -17,7 +17,9 @@ target_include_directories(bass
 	.
 )
 
-target_link_libraries(bass
-	ws2_32
-	ole32
-)
+if(WIN32)
+	target_link_libraries(bass
+		ws2_32
+		ole32
+	)
+endif()

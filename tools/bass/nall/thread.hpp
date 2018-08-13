@@ -6,9 +6,9 @@
 //an added bonus is that it avoids licensing issues on Windows
 //win32-pthreads (needed for std::thread) is licensed under the GPL only
 
-#include "platform.hpp"
-#include "function.hpp"
-#include "intrinsics.hpp"
+#include <nall/platform.hpp>
+#include <nall/function.hpp>
+#include <nall/intrinsics.hpp>
 
 #if defined(API_POSIX)
 

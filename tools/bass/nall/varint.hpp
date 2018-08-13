@@ -1,8 +1,8 @@
 #pragma once
 
-#include "primitives.hpp"
-#include "serializer.hpp"
-#include "stdint.hpp"
+#include <nall/primitives.hpp>
+#include <nall/serializer.hpp>
+#include <nall/stdint.hpp>
 
 namespace nall {
 

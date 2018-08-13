@@ -1,10 +1,3 @@
-#pragma once
-#include "../../nall/string.hpp"
-#include "../../nall/hashset.hpp"
-#include "../../nall/set.hpp"
-#include "../../nall/file.hpp"
-using namespace nall;
-
 struct Architecture;
 
 struct Bass {
@@ -100,6 +93,7 @@ protected:
   auto queryPhase() const -> bool { return phase == Phase::Query; }
   auto writePhase() const -> bool { return phase == Phase::Write; }
 
+  //core.cpp
   auto pc() const -> uint;
   auto seek(uint offset) -> void;
   auto write(uint64_t data, uint length = 1) -> void;
@@ -109,6 +103,7 @@ protected:
   template<typename... P> auto warning(P&&... p) -> void;
   template<typename... P> auto error(P&&... p) -> void;
 
+  //evaluate.cpp
   auto evaluate(const string& expression, Evaluation mode = Evaluation::Default) -> int64_t;
   auto evaluate(Eval::Node* node, Evaluation mode) -> int64_t;
   auto evaluateParameters(Eval::Node* node, Evaluation mode) -> vector<int64_t>;
@@ -116,15 +111,19 @@ protected:
   auto evaluateLiteral(Eval::Node* node, Evaluation mode) -> int64_t;
   auto evaluateAssign(Eval::Node* node, Evaluation mode) -> int64_t;
 
+  //analyze.cpp
   auto analyze() -> bool;
   auto analyzeInstruction(Instruction& instruction) -> bool;
 
+  //execute.cpp
   auto execute() -> bool;
   auto executeInstruction(Instruction& instruction) -> bool;
 
+  //assemble.cpp
   auto initialize() -> void;
   auto assemble(const string& statement) -> bool;
 
+  //utility.cpp
   auto setMacro(const string& name, const string_vector& parameters, uint ip, bool inlined, Frame::Level level) -> void;
   auto findMacro(const string& name) -> maybe<Macro&>;
 
@@ -174,5 +173,5 @@ protected:
   string_vector sourceFilenames;
 
   shared_pointer<Architecture> architecture;
-  friend class Architecture;
+  friend struct Architecture;
 };

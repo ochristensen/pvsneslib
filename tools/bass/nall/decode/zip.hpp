@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../filemap.hpp"
-#include "../string.hpp"
-#include "../vector.hpp"
-#include "inflate.hpp"
+#include <nall/filemap.hpp>
+#include <nall/string.hpp>
+#include <nall/vector.hpp>
+#include <nall/decode/inflate.hpp>
 
 namespace nall { namespace Decode {
 

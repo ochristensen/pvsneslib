@@ -1,7 +1,7 @@
 #pragma once
 
-#include "service.hpp"
-#include "http/role.hpp"
+#include <nall/service.hpp>
+#include <nall/http/role.hpp>
 
 namespace nall { namespace HTTP {
 

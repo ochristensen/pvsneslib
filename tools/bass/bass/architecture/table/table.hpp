@@ -1,7 +1,3 @@
-#pragma once
-
-#include "../architecture.h"
-
 struct Table : Architecture {
   Table(Bass& self, const string& table);
   auto assemble(const string& statement) -> bool override;

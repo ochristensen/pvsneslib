@@ -1,7 +1,7 @@
 #pragma once
 
-#include "platform.hpp"
-#include "string.hpp"
+#include <nall/platform.hpp>
+#include <nall/string.hpp>
 
 #include <shlwapi.h>
 #undef interface

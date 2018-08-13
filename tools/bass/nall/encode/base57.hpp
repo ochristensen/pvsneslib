@@ -1,6 +1,6 @@
 #pragma once
 
-#include "arithmetic.hpp"
+#include <nall/arithmetic.hpp>
 
 namespace nall { namespace Encode {
 

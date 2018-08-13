@@ -11,10 +11,10 @@
 //- only plain-old-data can be stored. complex classes must provide serialize(serializer&);
 //- floating-point usage is not portable across different implementations
 
-#include "range.hpp"
-#include "stdint.hpp"
-#include "traits.hpp"
-#include "utility.hpp"
+#include <nall/range.hpp>
+#include <nall/stdint.hpp>
+#include <nall/traits.hpp>
+#include <nall/utility.hpp>
 
 namespace nall {
 
@@ -96,8 +96,6 @@ struct serializer {
     return *this;
   }
 
-  // can't distinguish integral from boolean so non-template overload
-  auto operator()(bool& value, bool* t = nullptr) -> serializer& { return boolean(value); }
   template<typename T> auto operator()(T& value, typename std::enable_if<has_serialize<T>::value>::type* = 0) -> serializer& { value.serialize(*this); return *this; }
   template<typename T> auto operator()(T& value, typename std::enable_if<std::is_integral<T>::value>::type* = 0) -> serializer& { return integer(value); }
   template<typename T> auto operator()(T& value, typename std::enable_if<std::is_floating_point<T>::value>::type* = 0) -> serializer& { return floatingpoint(value); }

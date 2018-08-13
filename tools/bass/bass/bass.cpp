@@ -3,15 +3,11 @@
 //author: byuu
 //project started: 2013-09-27
 
-#include "../nall/nall.hpp"
-using namespace nall;
+#include "bass.hpp"
+#include "core/core.cpp"
+#include "architecture/table/table.cpp"
 
-#include "core/core.h"
-#include "architecture/architecture.h"
-#include "architecture/table/table.h"
-
-#include "../nall/main.hpp"
-
+#include <nall/main.hpp>
 auto nall::main(string_vector args) -> void {
   if(args.size() == 1) {
     print(stderr, "bass v15\n");

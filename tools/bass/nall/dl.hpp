@@ -2,15 +2,15 @@
 
 //dynamic linking support
 
-#include "intrinsics.hpp"
-#include "path.hpp"
-#include "stdint.hpp"
-#include "string.hpp"
-#include "utility.hpp"
+#include <nall/intrinsics.hpp>
+#include <nall/path.hpp>
+#include <nall/stdint.hpp>
+#include <nall/string.hpp>
+#include <nall/utility.hpp>
 
 #if defined(PLATFORM_WINDOWS)
   #include <windows.h>
-  #include "windows/utf8.hpp"
+  #include <nall/windows/utf8.hpp>
 #else
   #include <dlfcn.h>
 #endif

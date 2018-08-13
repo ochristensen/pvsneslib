@@ -1,6 +1,6 @@
 #pragma once
 
-#include "http/role.hpp"
+#include <nall/http/role.hpp>
 
 namespace nall { namespace HTTP {
 

@@ -9,17 +9,17 @@
 #include <initializer_list>
 #include <memory>
 
-#include "platform.hpp"
-#include "atoi.hpp"
-#include "function.hpp"
-#include "intrinsics.hpp"
-#include "memory.hpp"
-#include "primitives.hpp"
-#include "shared-pointer.hpp"
-#include "stdint.hpp"
-#include "utility.hpp"
-#include "varint.hpp"
-#include "vector.hpp"
+#include <nall/platform.hpp>
+#include <nall/atoi.hpp>
+#include <nall/function.hpp>
+#include <nall/intrinsics.hpp>
+#include <nall/memory.hpp>
+#include <nall/primitives.hpp>
+#include <nall/shared-pointer.hpp>
+#include <nall/stdint.hpp>
+#include <nall/utility.hpp>
+#include <nall/varint.hpp>
+#include <nall/vector.hpp>
 
 namespace nall {
 
@@ -309,30 +309,30 @@ struct string_format : vector<string> {
 
 }
 
-#include "string/view.hpp"
-#include "string/atoi.hpp"
-#include "string/cast.hpp"
-#include "string/compare.hpp"
-#include "string/convert.hpp"
-#include "string/core.hpp"
-#include "string/find.hpp"
-#include "string/format.hpp"
-#include "string/list.hpp"
-#include "string/match.hpp"
-#include "string/replace.hpp"
-#include "string/split.hpp"
-#include "string/trim.hpp"
-#include "string/utility.hpp"
-#include "string/eval/node.hpp"
-#include "string/eval/literal.hpp"
-#include "string/eval/parser.hpp"
-#include "string/eval/evaluator.hpp"
-#include "string/markup/node.hpp"
-#include "string/markup/find.hpp"
-#include "string/markup/bml.hpp"
-#include "string/markup/xml.hpp"
-#include "string/transform/cml.hpp"
-#include "string/transform/dml.hpp"
+#include <nall/string/view.hpp>
+#include <nall/string/atoi.hpp>
+#include <nall/string/cast.hpp>
+#include <nall/string/compare.hpp>
+#include <nall/string/convert.hpp>
+#include <nall/string/core.hpp>
+#include <nall/string/find.hpp>
+#include <nall/string/format.hpp>
+#include <nall/string/list.hpp>
+#include <nall/string/match.hpp>
+#include <nall/string/replace.hpp>
+#include <nall/string/split.hpp>
+#include <nall/string/trim.hpp>
+#include <nall/string/utility.hpp>
+#include <nall/string/eval/node.hpp>
+#include <nall/string/eval/literal.hpp>
+#include <nall/string/eval/parser.hpp>
+#include <nall/string/eval/evaluator.hpp>
+#include <nall/string/markup/node.hpp>
+#include <nall/string/markup/find.hpp>
+#include <nall/string/markup/bml.hpp>
+#include <nall/string/markup/xml.hpp>
+#include <nall/string/transform/cml.hpp>
+#include <nall/string/transform/dml.hpp>
 
 namespace nall {
 //inline auto range(const string& value) { return range_t{0, (int)value.size(), 1}; }

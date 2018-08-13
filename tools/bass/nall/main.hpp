@@ -1,7 +1,7 @@
 #pragma once
 
-#include "platform.hpp"
-#include "string.hpp"
+#include <nall/platform.hpp>
+#include <nall/string.hpp>
 
 namespace nall {
   auto main(string_vector arguments) -> void;

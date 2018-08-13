@@ -1,5 +1,3 @@
-#include "table.h"
-
 Table::Table(Bass& self, const string& table) : Architecture(self) {
   bitval = 0;
   bitpos = 0;

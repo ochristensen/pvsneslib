@@ -2,12 +2,12 @@
 
 //service model template built on top of shared-memory
 
-#include "shared-memory.hpp"
+#include <nall/shared-memory.hpp>
 
 #if defined(API_POSIX)
-  #include "posix/service.hpp"
+  #include <nall/posix/service.hpp>
 #endif
 
 #if defined(API_WINDOWS)
-  #include "windows/service.hpp"
+  #include <nall/windows/service.hpp>
 #endif

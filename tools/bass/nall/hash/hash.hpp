@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../arithmetic.hpp"
-#include "../range.hpp"
-#include "../string.hpp"
+#include <nall/arithmetic.hpp>
+#include <nall/range.hpp>
+#include <nall/string.hpp>
 
 //cannot use constructor inheritance due to needing to call virtual reset();
 //instead, define a macro to reduce boilerplate code in every Hash subclass

@@ -11,8 +11,8 @@
 //if a folder is specified, the folder is opened using the associated file explorer
 //if a URL is specified, the default web browser is opened and pointed at the URL requested
 
-#include "intrinsics.hpp"
-#include "string.hpp"
+#include <nall/intrinsics.hpp>
+#include <nall/string.hpp>
 
 namespace nall {
 

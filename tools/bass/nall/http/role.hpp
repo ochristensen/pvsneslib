@@ -3,8 +3,8 @@
 //Role: base class for Client and Server
 //provides shared functionality
 
-#include "http/request.hpp"
-#include "http/response.hpp"
+#include <nall/http/request.hpp>
+#include <nall/http/response.hpp>
 
 namespace nall { namespace HTTP {
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "queue.hpp"
+#include <nall/queue.hpp>
 
 namespace nall { namespace DSP { namespace Resampler {
 

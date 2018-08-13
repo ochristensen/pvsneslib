@@ -1,8 +1,8 @@
 #pragma once
 
-#include "base64.hpp"
-#include "stdint.hpp"
-#include "string.hpp"
+#include <nall/base64.hpp>
+#include <nall/stdint.hpp>
+#include <nall/string.hpp>
 
 #if !defined(_WIN32)
   #include <sys/types.h>

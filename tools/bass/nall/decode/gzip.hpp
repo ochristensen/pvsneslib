@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../file.hpp"
-#include "inflate.hpp"
+#include <nall/file.hpp>
+#include <nall/decode/inflate.hpp>
 
 namespace nall { namespace Decode {
 

@@ -7,8 +7,8 @@
 
 #include <sqlite3.h>
 
-#include "stdint.hpp"
-#include "string.hpp"
+#include <nall/stdint.hpp>
+#include <nall/string.hpp>
 
 namespace nall { namespace Database {
 

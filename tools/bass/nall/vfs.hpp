@@ -1,3 +1,3 @@
 #pragma once
 
-#include "vfs/vfs.hpp"
+#include <nall/vfs/vfs.hpp>

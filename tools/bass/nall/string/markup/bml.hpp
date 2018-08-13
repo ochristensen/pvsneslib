@@ -147,7 +147,7 @@ inline auto unserialize(const string& markup) -> Markup::Node {
   SharedNode node(new ManagedNode);
   try {
     node->parse(markup);
-  } catch(const char* error) {
+  } catch(const char*) {
     node.reset();
   }
   return (Markup::SharedNode&)node;

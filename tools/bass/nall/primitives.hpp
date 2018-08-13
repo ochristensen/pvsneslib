@@ -1,7 +1,7 @@
 #pragma once
 
-#include "serializer.hpp"
-#include "traits.hpp"
+#include <nall/serializer.hpp>
+#include <nall/traits.hpp>
 
 namespace nall {
 

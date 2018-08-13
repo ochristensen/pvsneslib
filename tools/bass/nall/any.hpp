@@ -1,7 +1,7 @@
 #pragma once
 
 #include <typeinfo>
-#include "traits.hpp"
+#include <nall/traits.hpp>
 
 namespace nall {
 

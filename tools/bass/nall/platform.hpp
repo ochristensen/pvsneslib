@@ -1,6 +1,6 @@
 #pragma once
 
-#include "intrinsics.hpp"
+#include <nall/intrinsics.hpp>
 
 namespace Math {
   static const long double e  = 2.71828182845904523536;
@@ -13,7 +13,7 @@ namespace Math {
   #define _WIN32_WINNT 0x0601
   #undef  __MSVCRT_VERSION__
   #define __MSVCRT_VERSION__ _WIN32_WINNT
-  #include "windows/utf8.hpp"
+  #include <nall/windows/utf8.hpp>
 #endif
 
 #include <atomic>
@@ -81,11 +81,11 @@ namespace Math {
   namespace nall {
     //network functions take void*, not char*. this allows them to be used without casting
 
-    inline auto recv(int socket, void* buffer, size_t length, int flags) -> ssize_t {
+    inline auto recv(int socket, void* buffer, size_t length, int flags) -> intmax_t {
       return ::recv(socket, (char*)buffer, length, flags);
     }
 
-    inline auto send(int socket, const void* buffer, size_t length, int flags) -> ssize_t {
+    inline auto send(int socket, const void* buffer, size_t length, int flags) -> intmax_t {
       return ::send(socket, (const char*)buffer, length, flags);
     }
 

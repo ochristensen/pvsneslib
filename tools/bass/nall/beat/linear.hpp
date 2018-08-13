@@ -1,9 +1,9 @@
 #pragma once
 
-#include "file.hpp"
-#include "filemap.hpp"
-#include "stdint.hpp"
-#include "string.hpp"
+#include <nall/file.hpp>
+#include <nall/filemap.hpp>
+#include <nall/stdint.hpp>
+#include <nall/string.hpp>
 
 namespace nall {
 

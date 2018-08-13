@@ -1,6 +1,6 @@
 #pragma once
 
-#include "traits.hpp"
+#include <nall/traits.hpp>
 
 #undef min
 #undef max

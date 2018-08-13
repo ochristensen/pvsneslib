@@ -2,13 +2,13 @@
 
 #include <new>
 
-#include "bit.hpp"
-#include "function.hpp"
-#include "maybe.hpp"
-#include "memory.hpp"
-#include "range.hpp"
-#include "sort.hpp"
-#include "traits.hpp"
+#include <nall/bit.hpp>
+#include <nall/function.hpp>
+#include <nall/maybe.hpp>
+#include <nall/memory.hpp>
+#include <nall/range.hpp>
+#include <nall/sort.hpp>
+#include <nall/traits.hpp>
 
 namespace nall {
 
@@ -100,13 +100,13 @@ private:
 
 }
 
-#include "vector/core.hpp"
-#include "vector/assign.hpp"
-#include "vector/memory.hpp"
-#include "vector/access.hpp"
-#include "vector/modify.hpp"
-#include "vector/iterator.hpp"
-#include "vector/utility.hpp"
+#include <nall/vector/core.hpp>
+#include <nall/vector/assign.hpp>
+#include <nall/vector/memory.hpp>
+#include <nall/vector/access.hpp>
+#include <nall/vector/modify.hpp>
+#include <nall/vector/iterator.hpp>
+#include <nall/vector/utility.hpp>
 
 namespace nall {
   template<typename T> inline auto range(const vector<T>& value) { return range_t{0, (int)value.size(), 1}; }

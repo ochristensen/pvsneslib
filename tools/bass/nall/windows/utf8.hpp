@@ -10,16 +10,15 @@
 #undef  NOMINMAX
 #define NOMINMAX
 
-#include "windows/guard.hpp"
-#include <winsock2.h>
-#include <windows.h>
-#include "windows/guard.hpp"
+#include <WinSock2.h>
+#include <Shlwapi.h>
+#include <Windows.h>
 
 #if !defined(PATH_MAX)
   #define PATH_MAX 260
 #endif
 
-using uint = unsigned;
+using uint = unsigned int;
 
 namespace nall {
   //UTF-8 to UTF-16
@@ -78,7 +77,7 @@ namespace nall {
   inline auto utf8_args(int& argc, char**& argv) -> void {
     wchar_t** wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
     argv = new char*[argc + 1]();
-    for(uint i = 0; i < argc; i++) {
+    for(int i = 0; i < argc; i++) {
       argv[i] = new char[PATH_MAX];
       strcpy(argv[i], nall::utf8_t(wargv[i]));
     }

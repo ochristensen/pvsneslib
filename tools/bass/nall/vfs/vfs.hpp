@@ -1,7 +1,7 @@
 #pragma once
 
-#include "range.hpp"
-#include "shared-pointer.hpp"
+#include <nall/range.hpp>
+#include <nall/shared-pointer.hpp>
 
 namespace nall { namespace vfs {
 
@@ -71,5 +71,5 @@ namespace nall { namespace vfs { namespace shared {
   using file = shared_pointer<vfs::file>;
 }}}
 
-#include "vfs/fs/file.hpp"
-#include "vfs/memory/file.hpp"
+#include <nall/vfs/fs/file.hpp>
+#include <nall/vfs/memory/file.hpp>

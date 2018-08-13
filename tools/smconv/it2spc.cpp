@@ -832,7 +832,7 @@ void Bank::MakeSPC(const char *spcfile) const
 
 	Modules[0]->Export(file, false);
 
-	u16 source_table[2 * max_samples];
+	u16 source_table[128]; // 2 * max_samples
 
 	//!!TODO export sample list and create sample table!
 	for (u32 i = 0; i < Modules[0]->SourceList.size(); i++)

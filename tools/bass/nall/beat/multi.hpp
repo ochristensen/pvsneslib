@@ -1,8 +1,8 @@
 #pragma once
 
-#include "beat/patch.hpp"
-#include "beat/linear.hpp"
-#include "beat/delta.hpp"
+#include <nall/beat/patch.hpp>
+#include <nall/beat/linear.hpp>
+#include <nall/beat/delta.hpp>
 
 namespace nall {
 

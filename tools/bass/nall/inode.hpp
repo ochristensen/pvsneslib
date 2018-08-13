@@ -3,8 +3,14 @@
 //generic abstraction layer for common storage operations against both files and directories
 //these functions are not recursive; use directory::create() and directory::remove() for recursion
 
-#include "platform.hpp"
-#include "string.hpp"
+#include <nall/platform.hpp>
+#include <nall/string.hpp>
+
+#if defined(PLATFORM_WINDOWS)
+#define F_OK 0
+#define R_OK 2
+#define W_OK 4
+#endif
 
 namespace nall {
 
@@ -21,10 +27,6 @@ struct inode {
 
   static auto writable(const string& name) -> bool {
     return access(name, W_OK) == 0;
-  }
-
-  static auto executable(const string& name) -> bool {
-    return access(name, X_OK) == 0;
   }
 
   static auto uid(const string& name) -> uint {

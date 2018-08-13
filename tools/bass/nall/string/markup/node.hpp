@@ -40,7 +40,7 @@ protected:
   inline auto _lookup(const string& path) const -> Node;
   inline auto _create(const string& path) -> Node;
 
-  friend class Node;
+  friend struct Node;
 };
 
 struct Node {
@@ -95,11 +95,15 @@ struct Node {
     return std::swap(shared->_children[x], shared->_children[y]), true;
   }
 
-  auto sort(function<bool (Node, Node)> comparator = [](auto x, auto y) {
-    return string::compare(x.shared->_name, y.shared->_name) < 0;
-  }) -> void {
+  auto sort(function<bool (Node, Node)> comparator) -> void {
     nall::sort(shared->_children.data(), shared->_children.size(), [&](auto x, auto y) {
       return comparator(x, y);  //this call converts SharedNode objects to Node objects
+    });
+  }
+
+  auto sort() -> void {
+    nall::sort(shared->_children.data(), shared->_children.size(), [&](Node x, Node y) {
+      return string::compare(x.shared->_name, y.shared->_name) < 0;  //this call converts SharedNode objects to Node objects
     });
   }
 

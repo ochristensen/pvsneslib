@@ -1,6 +1,6 @@
 #pragma once
 
-#include "string.hpp"
+#include <nall/string.hpp>
 
 namespace nall { namespace Path {
 

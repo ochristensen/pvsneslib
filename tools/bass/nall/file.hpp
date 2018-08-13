@@ -1,12 +1,12 @@
 #pragma once
 
-#include "platform.hpp"
-#include "inode.hpp"
-#include "stdint.hpp"
-#include "string.hpp"
-#include "utility.hpp"
-#include "varint.hpp"
-#include "hash/sha256.hpp"
+#include <nall/platform.hpp>
+#include <nall/inode.hpp>
+#include <nall/stdint.hpp>
+#include <nall/string.hpp>
+#include <nall/utility.hpp>
+#include <nall/varint.hpp>
+#include <nall/hash/sha256.hpp>
 
 namespace nall {
 
@@ -69,7 +69,7 @@ struct file : inode, varint {
     struct __stat64 data;
     _wstat64(utf16_t(filename), &data);
     #endif
-    return S_ISREG(data.st_mode) ? data.st_size : 0u;
+    return (data.st_mode & S_IFMT) == S_IFREG ? data.st_size : 0u;
   }
 
   static auto read(const string& filename) -> vector<uint8_t> {

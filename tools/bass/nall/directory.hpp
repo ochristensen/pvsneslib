@@ -1,14 +1,14 @@
 #pragma once
 
-#include "file.hpp"
-#include "inode.hpp"
-#include "intrinsics.hpp"
-#include "sort.hpp"
-#include "string.hpp"
-#include "vector.hpp"
+#include <nall/file.hpp>
+#include <nall/inode.hpp>
+#include <nall/intrinsics.hpp>
+#include <nall/sort.hpp>
+#include <nall/string.hpp>
+#include <nall/vector.hpp>
 
 #if defined(PLATFORM_WINDOWS)
-  #include "windows/utf8.hpp"
+  #include <nall/windows/utf8.hpp>
 #else
   #include <dirent.h>
   #include <stdio.h>

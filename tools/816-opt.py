@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
 import argparse
-# import hotshot
 import os
 import re
 import sys
 
+
+ST_TO_PSEUDOREG = re.compile('st([axyz]).b tcc__([rf][0-9]*h?)$')
+ST_XY_TO_PSEUDOREG = re.compile('st([xy]).b tcc__([rf][0-9]*h?)$')
+ST_A_TO_PSEDUOREG = re.compile('sta.b tcc__([rf][0-9]*h?)$')
 
 def is_control(line):
     """check if the line alters control flow"""
@@ -36,9 +39,6 @@ def skip_redundant_st(i, text, r):
 
 
 def main(in_file, out_file, verbose):
-    # prof = hotshot.Profile('816-opt.prof')
-    # prof.start()
-
     # optimize only uncommented lines
     text_raw = open(in_file, 'r').readlines()
     text = [l.strip() for l in text_raw if not l.startswith(";")]
@@ -54,15 +54,15 @@ def main(in_file, out_file, verbose):
             in_bss = False
         if in_bss:
             bss += [l.split(' ')[0]]
+    if in_bss:
+        print("unterminated bss section", file=sys.stderr)
+        sys.exit(1)
     if verbose:
         print("bss:\n{0}".format(bss))
 
     opts_total = 0  # total number of optimizations performed
     opts_this_pass = 1  # have we optimized in this pass?
     opt_pass_ct = 0  # optimization pass counter
-    st_to_pseudo = re.compile('st([axyz]).b tcc__([rf][0-9]*h?)$')
-    st_xy_to_pseudo = re.compile('st([xy]).b tcc__([rf][0-9]*h?)$')
-    st_a_to_pseudo = re.compile('sta.b tcc__([rf][0-9]*h?)$')
     while opts_this_pass:
         opt_pass_ct += 1
         if verbose:
@@ -73,7 +73,7 @@ def main(in_file, out_file, verbose):
         while i < len(text):
             if text[i].startswith('st'):
                 # stores (accu/x/y/zero) to pseudo-registers
-                r = st_to_pseudo.match(text[i])
+                r = ST_TO_PSEUDOREG.match(text[i])
                 # eliminate redundant stores
                 if r and skip_redundant_st(i, text, r.groups()[1]):
                     i += 1  # skip redundant store
@@ -81,7 +81,7 @@ def main(in_file, out_file, verbose):
                     continue
 
                 # stores (x/y) to pseudo-registers
-                r = st_xy_to_pseudo.match(text[i])
+                r = ST_XY_TO_PSEUDOREG.match(text[i])
                 if r:
                     # store hwreg to preg, push preg, function call -> push hwreg, function call
                     if text[i+1] == 'pei (tcc__' + r.groups()[1] + ')' and text[i+2].startswith('jsr.l '):
@@ -106,12 +106,10 @@ def main(in_file, out_file, verbose):
                         continue
 
                 # stores (accu only) to pseudo-registers
-                r = st_a_to_pseudo.match(text[i])
+                r = ST_A_TO_PSEDUOREG.match(text[i])
                 if r:
-                    # sys.stderr.write('looking for lda.b tcc__r' + r.groups()[0] + ' in ' + text[i+1] + '\n')
                     # store preg followed by load preg
                     if text[i+1] == 'lda.b tcc__' + r.groups()[0]:
-                        # sys.stderr.write('found!\n')
                         text_opt += [text[i]]  # keep store
                         i += 2  # omit load
                         opts_this_pass += 1
@@ -180,10 +178,8 @@ def main(in_file, out_file, verbose):
 
                     r1 = re.match('lda.b tcc__([rf][0-9]*)', text[i+1])
                     if r1:
-                        # sys.stderr.write('t '+text[i+2][:3]+'\n')
                         if text[i+2][: 3] in ['and', 'ora']:
                             # store to preg1, load from preg2, and/or preg1 -> store to preg1, and/or preg2
-                            # sys.stderr.write('found in line ' + str(i) + '!\n')
                             if text[i+2][3:] == '.b tcc__' + r.groups()[0]:
                                 text_opt += [text[i]]  # store
                                 text_opt += [text[i+2][:3] +
@@ -297,8 +293,6 @@ def main(in_file, out_file, verbose):
 
                 # don't write preg high back to stack if it hasn't been updated
                 if text[i+1].endswith('h') and text[i+1].startswith('sta.b tcc__r') and text[i].startswith('lda ') and text[i].endswith(',s'):
-                    # sys.stderr.write('checking lines\n')
-                    # sys.stderr.write(text[i] + '\n' + text[i+1] + '\n')
                     local = text[i][4:]
                     reg = text[i+1][6:]
                     # lda stack ; store high preg ; ... ; load high preg ; sta stack
@@ -404,17 +398,14 @@ def main(in_file, out_file, verbose):
             i += 1
         text = text_opt
         if verbose:
-            sys.stderr.write(str(opts_this_pass) +
-                             ' optimizations performed\n')
+            print("{0} optimizations performed\n".format(opts_this_pass))
         opts_total += opts_this_pass
 
-    for l in text_opt:
-        print(l)
     if verbose:
+        for l in text_opt:
+            print(l)
         sys.stderr.write(str(opts_total) +
                          ' optimizations performed in total\n')
-
-    # prof.stop()
 
 
 if __name__ == "__main__":

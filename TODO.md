@@ -1,2 +1,5 @@
-- compile omptimore-816 (euphoria) - euphoria to c converter exists
-- 
+- convert optimore to python
+- update 816-opt to python 3.6/3.7
+    - many of the replacements (if not all) should be converted to multiline regex replacements
+- add 816-tcc source to tools
+- build an example program to verify this all actually works

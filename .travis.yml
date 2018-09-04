@@ -13,7 +13,8 @@ addons:
     sources: ['llvm-toolchain-trusty-6.0', 'ubuntu-toolchain-r-test']
     packages:
       - cmake
-      - ninja-build 
+      - ninja-build
+      - clang-6.0
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ninja; fi

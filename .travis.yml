@@ -3,21 +3,24 @@ language: cpp
 matrix:
   include:
     - os: linux
-      compiler: gcc
       addons:
         apt:
-          packages: ['cmake', 'ninja-build', 'g++-6']
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
-#    - os: linux
-#      compiler: clang
-#      env: CLANG_VERSION=6.0 LIBCXX=On
-#        - CC=clang-6.0
-#        - CXX=clang++-6.0
-#      addons:
-#        apt:
-#          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-6.0']
-#          packages: ['cmake', 'ninja-build', 'clang-6.0', 'g++-6']
-#
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-6.0
+          packages: ['cmake', 'ninja-build', 'clang-6.0']
+      env:
+        - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
+
 #    - os: osx
 #      compiler: clang
 #

@@ -2,6 +2,8 @@
 - [ ] update 816-opt to python 3.6/3.7
     - many of the replacements (if not all) should be converted to multiline regex replacements
 - [x] add 816-tcc source to tools (via [snes-sdk](https://github.com/optixx/snes-sdk))
+- [x] add [wla-dx](https://github.com/vhelin/wla-dx) source to tools
+    - They moved to cmake! :)
 - [ ] convert 816-tcc to CMake
 - [ ] build an example program to verify this all actually works
 - [ ] Use [llvm to snes](https://github.com/luizperes/llvm-to-snes) instead of 816-tcc once it works

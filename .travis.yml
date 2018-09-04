@@ -18,6 +18,6 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install cmake ninja; fi
 
 script:
-  - cmake_generate build Release
+  - ./cmake_generate.sh build Release
   - cd build
   - ninja

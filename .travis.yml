@@ -6,23 +6,23 @@ matrix:
       compiler: gcc
       addons:
         apt:
-          packages: ['cmake', 'ninja-build']
+          packages: ['cmake', 'ninja-build', 'g++-6']
 
-    - os: linux
-      compiler: clang
-      env: CLANG_VERSION=6.0 LIBCXX=On
-        - CC=clang-6.0
-        - CXX=clang++-6.0
-      addons:
-        apt:
-          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-6.0']
-          packages: ['cmake', 'ninja-build', 'clang-6.0', 'g++-6']
-
-    - os: osx
-      compiler: clang
-
-    - os: osx
-      compiler: gcc
+#    - os: linux
+#      compiler: clang
+#      env: CLANG_VERSION=6.0 LIBCXX=On
+#        - CC=clang-6.0
+#        - CXX=clang++-6.0
+#      addons:
+#        apt:
+#          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-6.0']
+#          packages: ['cmake', 'ninja-build', 'clang-6.0', 'g++-6']
+#
+#    - os: osx
+#      compiler: clang
+#
+#    - os: osx
+#      compiler: gcc
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ninja; fi

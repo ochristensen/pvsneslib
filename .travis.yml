@@ -10,10 +10,10 @@ compiler:
 
 addons:
   apt:
+    sources: ['llvm-toolchain-trusty-6.0', 'ubuntu-toolchain-r-test']
     packages:
       - cmake
-      - ninja-build
-      - llvm-toolchain-trusty-6.0
+      - ninja-build 
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ninja; fi

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ochristensen/pvsneslib.svg?branch=cmake)](https://travis-ci.com/ochristensen/pvsneslib)
+
 # A C library for the Nintendo SNES 20th birthday #
 PVSneslib V2.3.2 (10, February, 2017)  
 http://www.portabledev.com/jeux/supernes/pvsneslib/

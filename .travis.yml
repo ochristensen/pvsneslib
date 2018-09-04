@@ -15,7 +15,7 @@ addons:
       - ninja-build
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install cmake ninja; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ninja; fi
 
 script:
   - ./cmake_generate.sh build Release

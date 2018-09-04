@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.1)
+cmake_minimum_required(VERSION 3.9.2)
 # target_compile_features(bass PUBLIC cxx_std_14)
 add_subdirectory(bass)
 add_subdirectory(bin2h)

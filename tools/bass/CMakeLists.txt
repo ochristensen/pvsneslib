@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.1)
+cmake_minimum_required(VERSION 3.9.2)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/bass/data/architectures/spc700.arch
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/architectures/spc700.arch COPYONLY

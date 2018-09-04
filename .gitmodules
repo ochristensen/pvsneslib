@@ -1,6 +1,6 @@
 [submodule "tools/wla-dx"]
 	path = tools/wla-dx
-	url = git@github.com:vhelin/wla-dx.git
+	url = https://github.com/vhelin/wla-dx.git
 [submodule "tools/snes-sdk"]
 	path = tools/snes-sdk
-	url = git@github.com:optixx/snes-sdk.git
+	url = https://github.com/optixx/snes-sdk.git

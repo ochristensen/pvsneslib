@@ -16,3 +16,4 @@
     - They moved to cmake! :)
 - [ ] build an example program to verify this all actually works
 - [ ] Use [llvm to snes](https://github.com/luizperes/llvm-to-snes) instead of 816-tcc once it works
+- [ ] setup CI - I should have done this waaaay sooner

@@ -22,4 +22,6 @@ if(WIN32)
         ws2_32
         ole32
     )
+elseif(UNIX AND NOT APPLE)
+  target_link_libraries(bass dl)
 endif()

@@ -1,5 +1,6 @@
-- convert optimore to python
-- update 816-opt to python 3.6/3.7
+- [ ] convert optimore to python
+- [ ] update 816-opt to python 3.6/3.7
     - many of the replacements (if not all) should be converted to multiline regex replacements
-- add 816-tcc source to tools
-- build an example program to verify this all actually works
+- [ ] add 816-tcc source to tools
+- [ ] build an example program to verify this all actually works
+- [ ] Use this instead of 816-tcc once it works https://github.com/luizperes/llvm-to-snes

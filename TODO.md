@@ -1,6 +1,7 @@
 - [ ] convert optimore to python
 - [ ] update 816-opt to python 3.6/3.7
     - many of the replacements (if not all) should be converted to multiline regex replacements
-- [ ] add 816-tcc source to tools
+- [x] add 816-tcc source to tools (via [snes-sdk](https://github.com/optixx/snes-sdk))
+- [ ] convert 816-tcc to CMake
 - [ ] build an example program to verify this all actually works
 - [ ] Use [llvm to snes](https://github.com/luizperes/llvm-to-snes) instead of 816-tcc once it works

@@ -3,4 +3,4 @@
     - many of the replacements (if not all) should be converted to multiline regex replacements
 - [ ] add 816-tcc source to tools
 - [ ] build an example program to verify this all actually works
-- [ ] Use this instead of 816-tcc once it works https://github.com/luizperes/llvm-to-snes
+- [ ] Use [llvm to snes](https://github.com/luizperes/llvm-to-snes) instead of 816-tcc once it works

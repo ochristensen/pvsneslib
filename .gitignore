@@ -12,3 +12,5 @@ CTestTestfile.cmake
 /bin
 /.vscode
 /.vs
+.pnps
+.pnproj

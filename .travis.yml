@@ -7,7 +7,7 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-          packages: ["cmake", "ninja-build", "g++-7"]
+          packages: ['cmake', 'ninja-build', 'g++-7']
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
@@ -19,11 +19,11 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
 
-   - os: osx
-     compiler: clang
+    - os: osx
+      compiler: clang
 
-     - os: osx
-     compiler: gcc
+    - os: osx
+      compiler: gcc
 
 before_install:
   - eval "${MATRIX_EVAL}"

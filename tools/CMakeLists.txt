@@ -7,6 +7,7 @@ add_subdirectory(constify)
 add_subdirectory(gfx2snes)
 add_subdirectory(smconv)
 add_subdirectory(snestools)
+add_subdirectory(snes-sdk/tcc-65816)
 # keep as last until wla-dx !184 is in; currently sets global cmake vars that would override those in the config script
 # this should also resolve submodule builds not generating the opcode tables in the right place (including PROJECT_BINARY_DIR rather than CMAKE_BINARY_DIR also fixes this in current source)
 # add_subdirectory(wla-dx)

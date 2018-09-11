@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+DEBIAN_FRONTEND=noninteractive
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 echo "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main" | sudo tee -a /etc/apt/sources.list >/dev/null
 sudo -E apt-add-repository -y "ppa:ubuntu-toolchain-r/test"

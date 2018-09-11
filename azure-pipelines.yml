@@ -1,20 +1,22 @@
 jobs:
-- job: Linux
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - task: ShellScript@2
-    inputs:
-      scriptPath: ./build_linux.sh
-- job: macOS
-  pool:
-    vmImage: 'xcode9-macos10.13'
-  steps:
-  - task: ShellScript@2
-    inputs:
-      scriptPath: ./build_mac.sh
-# - job: Windows
-#   pool:
-#     vmImage: 'vs2017-win2016'
-#   steps:
-#   - script: echo hello from Windows
+  - job: Linux
+    pool:
+      vmImage: "ubuntu-16.04"
+    steps:
+      - task: ShellScript@2
+        inputs:
+          scriptPath: ./build_linux.sh
+  - job: macOS
+    pool:
+      vmImage: "xcode9-macos10.13"
+    steps:
+      - task: ShellScript@2
+        inputs:
+          scriptPath: ./build_mac.sh
+  - job: Windows
+    pool:
+      vmImage: "vs2017-win2016"
+    steps:
+      - task: ShellScript@2
+        inputs:
+          scriptPath: ./build_win.ps1

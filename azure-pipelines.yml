@@ -19,4 +19,4 @@ jobs:
     steps:
       - task: ShellScript@2
         inputs:
-          scriptPath: ./build_win.ps1
+          scriptPath: ./build_win.sh

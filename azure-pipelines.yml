@@ -10,7 +10,7 @@ jobs:
   steps:
   - script: |
     brew install cmake ninja
-    ./cmake_generate.sh build Release
+    cmake_generate.sh build Release
     cd build
     ninja
 # - job: Windows

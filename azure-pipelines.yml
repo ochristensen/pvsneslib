@@ -8,9 +8,12 @@ jobs:
   pool:
     vmImage: 'xcode9-macos10.13'
   steps:
+  - script: brew install cmake ninja
+  - task: ShellScript@2
+    inputs:
+      scriptPath: ./cmake_generate.sh
+      args: 'build Release'
   - script: |
-    brew install cmake ninja
-    cmake_generate.sh build Release
     cd build
     ninja
 # - job: Windows

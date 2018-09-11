@@ -1,16 +1,19 @@
 jobs:
-- job: Linux
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - script: echo hello from Linux
+# - job: Linux
+#   pool:
+#     vmImage: 'ubuntu-16.04'
+#   steps:
+#   - script: echo hello from Linux
 - job: macOS
   pool:
     vmImage: 'xcode9-macos10.13'
   steps:
-  - script: echo hello from macOS
-- job: Windows
-  pool:
-    vmImage: 'vs2017-win2016'
-  steps:
-  - script: echo hello from Windows
+  - script: brew install cmake ninja
+    ./cmake_generate.sh build Release
+    cd build
+    ninja
+# - job: Windows
+#   pool:
+#     vmImage: 'vs2017-win2016'
+#   steps:
+#   - script: echo hello from Windows

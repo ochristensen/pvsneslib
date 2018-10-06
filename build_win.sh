@@ -5,6 +5,7 @@ unzip -o ninja-win.zip
 export PATH="$(pwd)":$PATH
 export PATH="/c/Program\ Files\ \(x86\)/Windows\ Kits/10/bin/10.0.15063.0/x64":$PATH
 export tools_ver=$(cat /c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/Enterprise/VC/Auxiliary/Build/Microsoft.VCToolsVersion.default.txt)
+export PATH="/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/Enterprise/VC/Tools/MSVC/$tools_ver/bin/Hostx64/x64":$PATH
 export CC=/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/Enterprise/VC/Tools/MSVC/$tools_ver/bin/Hostx64/x64/cl.exe
 export CXX=/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/Enterprise/VC/Tools/MSVC/$tools_ver/bin/Hostx64/x64/cl.exe
 ./cmake_generate.sh build Release

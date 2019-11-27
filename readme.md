@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.com/ochristensen/pvsneslib.svg?branch=cmake)](https://travis-ci.com/ochristensen/pvsneslib)
 [![Build Status](https://dev.azure.com/d748/pvsneslib/_apis/build/status/pvsneslib)](https://dev.azure.com/d748/pvsneslib/_build/latest?definitionId=1)
 
 # A C library for the Nintendo SNES 20th birthday #

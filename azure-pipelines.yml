@@ -17,9 +17,6 @@ jobs:
     pool:
       vmImage: "windows-2019"
     steps:
-      #- task: ShellScript@2
-      #  inputs:
-      #    scriptPath: ./build_win.sh
       - script: |
         pushd "C:\Program Files (x86)\Microsoft Visual Studio\Installer\"
         for /f "delims=" %%x in ('.\vswhere.exe -latest -property InstallationPath') do set VSPATH=%%x

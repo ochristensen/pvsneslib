@@ -17,6 +17,13 @@ jobs:
     pool:
       vmImage: "windows-2019"
     steps:
-      - task: ShellScript@2
-        inputs:
-          scriptPath: ./build_win.sh
+      #- task: ShellScript@2
+      #  inputs:
+      #    scriptPath: ./build_win.sh
+      - script: |
+        pushd "C:\Program Files (x86)\Microsoft Visual Studio\Installer\"
+        for /f "delims=" %%x in ('.\vswhere.exe -latest -property InstallationPath') do set VSPATH=%%x
+        popd
+        call "%VSPATH%\VC\Auxiliary\Build\vcvarsall.bat" x64
+        cmake -G Ninja -DCMAKE_CXX_COMPILER="cl.exe" -DCMAKE_C_COMPILER="cl.exe" -S . -B build
+        displayName: Generating with CMake

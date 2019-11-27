@@ -134,109 +134,96 @@ void DeleteNode(int p) /* deletes node p from tree */
   dad[p] = NIL;
 }
 
-int Convert2PicLZSS(int quietmode, unsigned char *bufin, int buflen,
-                    unsigned char *bufout) {
-  int i, len, r, s, last_match_length, code_buf_ptr;
-  unsigned char c, code_buf[17], mask;
-  int bfin = 0, bfout = 0;
-
-  InitTree();      /* initialize trees */
-  code_buf[0] = 0; /* code_buf[1..16] saves eight units of code, and
-         code_buf[0] works as eight flags, "1" representing that the unit
-         is an unencoded letter (1 byte), "0" a position-and-length pair
-         (2 bytes).  Thus, eight units require at most 16 bytes of code. */
-  code_buf_ptr = mask = 1;
-  s = 0;
-  r = N - F;
-  for (i = s; i < r; i++)
-    text_buf[i] =
-        ' '; /* Clear the buffer with any character that will appear often. */
-  // for (len = 0; len < F && (c = getc(infile)) != EOF; len++)
-  for (len = 0; len < F; len++) {
-    c = *(bufin + bfin);
-    bfin++;
-    text_buf[r + len] =
-        c; /* Read F bytes into the last F bytes of the buffer */
-  }
-
-  if ((textsize = len) == 0) return 0; /* text of size zero */
-  for (i = 1; i <= F; i++)
-    InsertNode(r - i); /* Insert the F strings,
-each of which begins with one or more 'space' characters.  Note
-the order in which these strings are inserted.  This way,
-degenerate trees will be less likely to occur. */
-  InsertNode(r);       /* Finally, insert the whole string just read.  The
-               global variables match_length and match_position are set. */
-  do {
-    if (match_length > len)
-      match_length = len; /* match_length
-may be spuriously long near the end of text. */
-    if (match_length <= THRESHOLD) {
-      match_length = 1;    /* Not long enough match.  Send one byte. */
-      code_buf[0] |= mask; /* 'send one byte' flag */
-      code_buf[code_buf_ptr++] = text_buf[r]; /* Send uncoded. */
-    } else {
-      code_buf[code_buf_ptr++] = (unsigned char)match_position;
-      code_buf[code_buf_ptr++] =
-          (unsigned char)(((match_position >> 4) & 0xf0) |
-                          (match_length - (THRESHOLD +
-                                           1))); /* Send position and length
-                                                    pair. Note match_length >
-                                                    THRESHOLD. */
-    }
-    if ((mask <<= 1) == 0) {               /* Shift mask left one bit. */
-      for (i = 0; i < code_buf_ptr; i++) { /* Send at most 8 units of */
-        *(bufout + bfout) = code_buf[i];
-        bfout++;
-        // putc(code_buf[i], outfile);     /* code together */
-      }
-      codesize += code_buf_ptr;
-      code_buf[0] = 0;
-      code_buf_ptr = mask = 1;
-    }
-    last_match_length = match_length;
-    // for (i = 0; i < last_match_length && (c = getc(infile)) != EOF; i++) {
-    for (i = 0; i < last_match_length && (bfin < buflen); i++) {
-      c = *(bufin + bfin);
-      bfin++;
-      DeleteNode(s);   /* Delete old strings and */
-      text_buf[s] = c; /* read new bytes */
-      if (s < F - 1)
-        text_buf[s + N] = c; /* If the position is
-near the end of buffer, extend the buffer to make
-string comparison easier. */
-      s = (s + 1) & (N - 1);
-      r = (r + 1) & (N - 1);
-      /* Since this is a ring buffer, increment the position
-         modulo N. */
-      InsertNode(r); /* Register the string in text_buf[r..r+F-1] */
-    }
-    // if ((textsize += i) > printcount) {
-    //	printf("%12ld\r", textsize);  printcount += 1024;
-    /* Reports progress each time the textsize exceeds
-       multiples of 1024. */
-    //}
-    while (i++ < last_match_length) { /* After the end of text, */
-      DeleteNode(s);                  /* no need to read, but */
-      s = (s + 1) & (N - 1);
-      r = (r + 1) & (N - 1);
-      if (--len) InsertNode(r); /* buffer may not be empty. */
-    }
-  } while (len > 0); /* until length of string to be processed is zero */
-
-  if (code_buf_ptr > 1) { /* Send remaining code. */
-    for (i = 0; i < code_buf_ptr; i++) {
-      // putc(code_buf[i], fp);
-      *(bufout + bfout) = code_buf[i];
-      bfout++;
-    }
-    codesize += code_buf_ptr;
-  }
-
-  if (quietmode == 0) {
-    printf("In : %d bytes\n", textsize); /* Encoding is done. */
-    printf("Out: %d bytes\n", codesize);
-  }
-
-  return codesize;
-}  // end of Convert2PicLZSS
+int Convert2PicLZSS(int quietmode, unsigned char *bufin, int buflen, unsigned char *bufout)
+{
+	int  i, len, r, s, last_match_length, code_buf_ptr;
+	unsigned char  c, code_buf[17], mask;
+	int bfin=0, bfout=0;
+	
+	InitTree();  /* initialize trees */
+	code_buf[0] = 0;  /* code_buf[1..16] saves eight units of code, and
+		code_buf[0] works as eight flags, "1" representing that the unit
+		is an unencoded letter (1 byte), "0" a position-and-length pair
+		(2 bytes).  Thus, eight units require at most 16 bytes of code. */
+	code_buf_ptr = mask = 1;
+	s = 0;  r = N - F;
+	for (i = s; i < r; i++) text_buf[i] = ' ';  /* Clear the buffer with any character that will appear often. */
+	//for (len = 0; len < F && (c = getc(infile)) != EOF; len++)
+	for (len = 0; len < F ; len++) {
+		c = *(bufin+bfin);
+		bfin++;
+		text_buf[r + len] = c;  /* Read F bytes into the last F bytes of the buffer */
+	}
+			
+	if ((textsize = len) == 0) return 0;  /* text of size zero */
+	for (i = 1; i <= F; i++) InsertNode(r - i);  /* Insert the F strings,
+		each of which begins with one or more 'space' characters.  Note
+		the order in which these strings are inserted.  This way,
+		degenerate trees will be less likely to occur. */
+	InsertNode(r);  /* Finally, insert the whole string just read.  The
+		global variables match_length and match_position are set. */
+	do {
+		if (match_length > len) match_length = len;  /* match_length
+			may be spuriously long near the end of text. */
+		if (match_length <= THRESHOLD) {
+			match_length = 1;  /* Not long enough match.  Send one byte. */
+			code_buf[0] |= mask;  /* 'send one byte' flag */
+			code_buf[code_buf_ptr++] = text_buf[r];  /* Send uncoded. */
+		} else {
+			code_buf[code_buf_ptr++] = (unsigned char) match_position;
+			code_buf[code_buf_ptr++] = (unsigned char)
+				(((match_position >> 4) & 0xf0)
+			  | (match_length - (THRESHOLD + 1)));  /* Send position and length pair. Note match_length > THRESHOLD. */
+		}
+		if ((mask <<= 1) == 0) {  /* Shift mask left one bit. */
+			for (i = 0; i < code_buf_ptr; i++)  {/* Send at most 8 units of */
+				*(bufout+bfout) = code_buf[i];
+				bfout++;
+				//putc(code_buf[i], outfile);     /* code together */
+			}
+			codesize += code_buf_ptr;
+			code_buf[0] = 0;  code_buf_ptr = mask = 1;
+		}
+		last_match_length = match_length;
+		//for (i = 0; i < last_match_length && (c = getc(infile)) != EOF; i++) {
+		for (i = 0; i < last_match_length && (bfin<buflen); i++) {
+			c = *(bufin+bfin);
+			bfin++;
+			DeleteNode(s);		/* Delete old strings and */
+			text_buf[s] = c;	/* read new bytes */
+			if (s < F - 1) text_buf[s + N] = c;  /* If the position is
+				near the end of buffer, extend the buffer to make
+				string comparison easier. */
+			s = (s + 1) & (N - 1);  r = (r + 1) & (N - 1);
+				/* Since this is a ring buffer, increment the position
+				   modulo N. */
+			InsertNode(r);	/* Register the string in text_buf[r..r+F-1] */
+		}
+		textsize += i;
+		//if ((textsize += i) > printcount) {
+		//	printf("%12ld\r", textsize);  printcount += 1024;
+				/* Reports progress each time the textsize exceeds
+				   multiples of 1024. */
+		//}
+		while (i++ < last_match_length) {	/* After the end of text, */
+			DeleteNode(s);					/* no need to read, but */
+			s = (s + 1) & (N - 1);  r = (r + 1) & (N - 1);
+			if (--len) InsertNode(r);		/* buffer may not be empty. */
+		}
+	} while (len > 0);	/* until length of string to be processed is zero */
+	
+	if (code_buf_ptr > 1) {		/* Send remaining code. */
+		for (i = 0; i < code_buf_ptr; i++) {
+			//putc(code_buf[i], fp);
+			*(bufout+bfout) = code_buf[i];
+			bfout++;
+		}
+		codesize += code_buf_ptr;
+	}
+	
+	if (quietmode == 0) {
+		printf("\nCompression Lzss from %d bytes to %d bytes (ratio %d%%)", textsize,codesize,((100*codesize)/textsize));	/* Encoding is done. */
+	}
+	
+	return codesize;
+} //end of Convert2PicLZSS

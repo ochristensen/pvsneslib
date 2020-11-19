@@ -8,7 +8,7 @@ jobs:
           scriptPath: ./build_linux.sh
   - job: macOS
     pool:
-      vmImage: "xcode12-macOS-11.0"
+      vmImage: "xcode12-macOS11.0"
     steps:
       - task: ShellScript@2
         inputs:

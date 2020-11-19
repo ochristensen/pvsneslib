@@ -1,14 +1,14 @@
 jobs:
   - job: Linux
     pool:
-      vmImage: "ubuntu-18.04"
+      vmImage: "ubuntu-latest"
     steps:
       - task: ShellScript@2
         inputs:
           scriptPath: ./build_linux.sh
   - job: macOS
     pool:
-      vmImage: "xcode12-macOS11.0"
+      vmImage: "macOS-latest"
     steps:
       - task: ShellScript@2
         inputs:
